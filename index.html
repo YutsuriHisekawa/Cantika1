@@ -72,11 +72,12 @@
     var {
       value: pesan
     } = await swalo.fire({
-      title: "Coba deh kamu lihat ini",
+      title: "Coba deh kamu lihat ini deh !",
+      imageUrl:"https://1859oregonmagazine.com/wp-content/uploads/2018/11/rotate-phone.gif",
       confirmButtonText: "Klik Untuk Melihat"
     });
     if (pesan) {
-      await swalo.fire("Aku jamin pasti kamu suka >< ");
+      await swalo.fire("Jangan lupa Rotate hp kamu ya ><");
       location.assign("cantika.html");
     } else {
       await swalo.fire({
