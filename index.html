@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styleGombalin.css" />
+  <link rel="stylesheet" href="css/stylePopUp.css" />
+  <script src="js/sweetalert2.all.min.js"></script>
+  <script src="js/sweet.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Cantika</title>
+</head>
+
+<body id="body">
+  <div class="preload">
+    <p>Loading dulu . . .</p>
+  </div>
+  <div class="open">
+    <div>
+      <div class="lope" onclick="ilang()"> <i class="love material-icons-sharp"> favorite </i> </div>
+      <h3>Cantika Fitri Novria <br>
+      pencet ❤️ nya >< </h3>
+    </div>
+  </div>
+  <div id="bg"></div> <img src="" alt="" id="fotoku" />
+
+  <h2 id="hai">Hai Cantika !</h2>
+  <h3 id="hia">Geser kesamping ya</h3>
+
+  <div id="slider">
+
+    <p> あなた　は 素晴らしいです</p>
+    <p> You are the best</p>
+    <p> あなた は 美しいです</p>
+    <p> You're beautiful</p>
+    <p> Press the prize <span>🎁</span></p>
+
+  </div>
+</body>
+<script>
+  musik = "audio/cantika.wav";
+  foto = "Image/menhera.png" ;
+  background = "Image/star.jpg";
+  async function popUp() {
+
+    await swalo.fire({
+      title: "Cantikaaaaa >< Love you ❤️",
+      imageUrl: "https://gifdb.com/images/high/anime-love-menhera-chan-4z2cllt8ku36nj7r.gif"
+    });
+
+    kirimPesan();
+
+  }
+  $(window).on("load", function () {
+    $(".preload").fadeOut("slow");
+  });
+  var audio = new Audio(musik);
+  audio.autoplay = true;
+  audio.loop = false;
+  bg.style = 'background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("' + background +
+    '");';
+  fotoku.src = foto;
+  popupku();
+  var swalo = Swal.mixin({
+    allowOutsideClick: false
+  });
+  async function kirimPesan() {
+    var {
+      value: pesan
+    } = await swalo.fire({
+      title: "Coba deh kamu lihat ini",
+      confirmButtonText: "Klik Untuk Melihat"
+    });
+    if (pesan) {
+      await swalo.fire("Aku jamin pasti kamu suka >< ");
+      location.assign("cantika.html");
+    } else {
+      await swalo.fire({
+        confirmButtonText: "Iya deh",
+        title: "Jangan dikosongin ya :)"
+      });
+      kirimPesan();
+    }
+  }
+  document.querySelector("span").addEventListener("click", function () {
+    popUp();
+  });
+  var open = document.querySelector(".open");
+
+  function ilang() {
+    audio.play();
+    open.style =
+      "transition: 1.5s ease-out all; opacity: 0; transform: scale(100) translateY(-20px); filter: brightness(0);";
+    setTimeout(function () {
+      open.style = "display:none;";
+    }, 1500);
+    setTimeout(function () {
+      fotoku.style = "opacity: 1; transition: 1s all ease; transform: translateY(0px) scale(1);";
+    }, 500);
+    setTimeout(function () {
+      hai.style = "opacity: 1; transition: 1s all ease; transform: translateY(0px);";
+    }, 1400);
+    setTimeout(function () {
+      hia.style = "opacity: 1; transition: 1s all ease; transform: translateY(0px);";
+    }, 1800);
+    setTimeout(function () {
+      slider.style = "opacity: 1; transition: 1s all ease; transform: translateY(0px) scale(1);";
+    }, 2200);
+  }
+</script>
+
+</html>
